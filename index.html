@@ -10,8 +10,8 @@
 
 <body>
     <h2>User Movie Search App - Parks in the City of Chicago</h2>
-    <h4>Search by Movie Title:</h4>
-    <input id="txtMovie" value="Date" type="text" placeholder="Enter Movie">
+    <h4>Search by Day:</h4>
+    <input id="txtMovie" value="Day" type="text" placeholder="Enter Movie">
     <button id="btnSearch" type="submit">Search</button>
 <!--     <p>Some departments include: POLICE, FIRE, AVIATION, HEALTH, BUILDINGS, ...</p> -->
     
@@ -19,29 +19,10 @@
     <input id="txtPark" value="Park" type="text" placeholder="Enter Name">
     <button id="btnSearch" type="submit">Search</button>
     
-     <h4>Search by Date:</h4>
-    <input id="txtDate" value="Date" type="text" placeholder="Enter Date">
+     <h4>Search by Movie Title:</h4>
+    <input id="txtDate" value="Title" type="text" placeholder="Enter Date">
     <button id="btnSearch" type="submit">Search</button>
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title"></h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-        <div class="modal-body">
-          <p></p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-      
-    </div>
-  </div>
+
     
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -65,7 +46,7 @@
                         p.addClass("employeeName");
                         p.attr("data-toggle", "modal");
                         p.attr("data-target","#myModal")
-                        p.text(v.day);
+                        p.text(v.title);
                         $("body").append(p);
                     });
                 });
@@ -85,15 +66,9 @@
                //find emp in array
                 $.get(endpoint + "?movie=" + $("#txtmovie").val(), function(response) {    //get data
                     $.each(response, function(i, v) {                                                //loop through each employee
-                        if(v.day == parkdate){                                                       //and check if his/her name is the one clicked
+                        if(v.park == parkdate){                                                       //and check if his/her name is the one clicked
                                                                                                      //if so, display that name (in modal or elsehow)
-                            $(".modal-title").html(''); //clear previous entry
-                            $(".modal-title").append(v.day + "<br>");
-                            
-                            $(".modal-body").html(''); //clear previous entry
-                            $(".modal-body").append("movie: " + v.movie + "<br>");
-//                             $(".modal-body").append("job titles: " + v.job_titles + "<br>");
-//                             $(".modal-body").append("annual salary: $" + v.annual_salary + "<br>");
+                          //display results
                         }
                     });
                 });
