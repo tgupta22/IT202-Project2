@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!––css-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <h2>User Movie Search App - Parks in the City of Chicago</h2>
+    <h4>Search by Movie Title:</h4>
+    <input id="txtMovie" value="Date" type="text" placeholder="Enter Movie">
+    <button id="btnSearch" type="submit">Search</button>
+<!--     <p>Some departments include: POLICE, FIRE, AVIATION, HEALTH, BUILDINGS, ...</p> -->
+    
+     <h4>Search by Park Name:</h4>
+    <input id="txtPark" value="Park" type="text" placeholder="Enter Name">
+    <button id="btnSearch" type="submit">Search</button>
+    
+     <h4>Search by Date:</h4>
+    <input id="txtDate" value="Date" type="text" placeholder="Enter Date">
+    <button id="btnSearch" type="submit">Search</button>
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title"></h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+    
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <script>
+        var endpoint = "https://data.cityofchicago.org/resource/7piw-z6r6.json"
+        var employeeData;
+        $(document).ready(function() {
+            
+            //CLICK THE BUTTON
+            $("#btnSearch").on("click", function(e) {
+                //1
+                //?$where=day="Fri"
+
+                $.get(endpoint + "?day=" + $("#txtMovie").val(), function(response) {
+                    $.each(response, function(i, v) {
+                        var p = $("<p>");
+                        
+                        p.addClass("employeeName");
+                        p.attr("data-toggle", "modal");
+                        p.attr("data-target","#myModal")
+                        p.text(v.day);
+                        $("body").append(p);
+                    });
+                });
+                //2
+                console.log("clicked search button");
+                //3
+                $("p.employeeName").html(''); //clear any previous entries
+            });
+            
+            
+            //CLICK A RESPONSE <P>
+            $("body").on("click", "p.employeeName", function(e) {            
+                
+                // get text of clicked element
+                var parkdate = $(this).text();
+                              
+               //find emp in array
+                $.get(endpoint + "?movie=" + $("#txtmovie").val(), function(response) {    //get data
+                    $.each(response, function(i, v) {                                                //loop through each employee
+                        if(v.day == parkdate){                                                       //and check if his/her name is the one clicked
+                                                                                                     //if so, display that name (in modal or elsehow)
+                            $(".modal-title").html(''); //clear previous entry
+                            $(".modal-title").append(v.day + "<br>");
+                            
+                            $(".modal-body").html(''); //clear previous entry
+                            $(".modal-body").append("movie: " + v.movie + "<br>");
+//                             $(".modal-body").append("job titles: " + v.job_titles + "<br>");
+//                             $(".modal-body").append("annual salary: $" + v.annual_salary + "<br>");
+                        }
+                    });
+                });
+                
+                
+                // update detail
+                // display detail      <- these two are also done above
+               
+            });
+        });
+    </script>
+
+</body>
+</html>
