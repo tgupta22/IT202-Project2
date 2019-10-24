@@ -11,17 +11,17 @@
 <body>
     <h2>User Movie Search App - Parks in the City of Chicago</h2>
     <h4>Search by Day:</h4>
-    <input id="txtMovie" value="Day" type="text" placeholder="Enter Movie">
-    <button id="btnSearch" type="submit">Search</button>
+    <input id="txtDay" value="Day" type="text" placeholder="Enter Day">
+<!--     <button id="btnSearch" type="submit">Search</button> -->
 <!--     <p>Some departments include: POLICE, FIRE, AVIATION, HEALTH, BUILDINGS, ...</p> -->
     
      <h4>Search by Park Name:</h4>
-    <input id="txtPark" value="Park" type="text" placeholder="Enter Name">
-    <button id="btnSearch" type="submit">Search</button>
+    <input id="txtPark" value="Park Name" type="text" placeholder="Enter Park">
+<!--     <button id="btnSearch" type="submit">Search</button> -->
     
      <h4>Search by Movie Title:</h4>
-    <input id="txtDate" value="Title" type="text" placeholder="Enter Date">
-    <button id="btnSearch" type="submit">Search</button>
+    <input id="txtTitle" value="Movie" type="text" placeholder="Enter Movie">
+    <button id="btnSearch" type="submit">Ready</button>
 
     
 
@@ -38,15 +38,81 @@
             $("#btnSearch").on("click", function(e) {
                 //1
                 //?$where=day="Fri"
+//             if(val == null)
+//                 {
+                    
+//                 }
+//                 
+            var day = $("#txtDay").val();
+            var movie = $("#txtTitle").val();
+            var park = $("#txtPark").val();    
+                
+             var day_soql ;
+             var movie_soql;
+             var park_soql ;   
+                
+              if (day = "")
+            {
+                 day_soql = "";
+               
+                
+            }
+                
+                else{
+                    
+                    day_soql = "?day=" + day;
+                    
+                }
+                
+                
+                  if (movie = "")
+            {
+                 movie_soql = "";
+               
+                
+            }
+                
+                else{
+                    
+                    movie_soql = "?movie=" + movie;
+                }
+                    
+                
+                       if (park = "")
+            {
+                 park_soql = "";
+               
+                
+            }
+                
+                else{
+                    
+                    park_soql = "?park=" + park;
+                }
+                
+               var url = endpoint + day + movie + park;
+                
+                
+                
 
-                $.get(endpoint + "?day=" + $("#txtMovie").val(), function(response) {
+//                 if (url){
+//               txtDay = " ";
+//               txtTitle = " ";
+//               txtPark = " ";
+//                     }
+                    
+                
+                    
+               // endpoint + "?day=" + $("#txtDay").val() + "&title=" + $("#txtTitle").val() + "&park=" +$("#txtPark").val();
+                
+                //console.log (endpoint + "?day=" + $("#txtDay").val() + "&title=" + $("#txtTitle").val() + "&park=" +$("#txtPark").val());
+                console.log(url);
+                $.get(url, function(response) {
                     $.each(response, function(i, v) {
                         var p = $("<p>");
                         
-                        p.addClass("employeeName");
-                        p.attr("data-toggle", "modal");
-                        p.attr("data-target","#myModal")
-                        p.text(v.title);
+
+                         p.text(v.title);
                         $("body").append(p);
                     });
                 });
@@ -58,26 +124,26 @@
             
             
             //CLICK A RESPONSE <P>
-            $("body").on("click", "p.employeeName", function(e) {            
+//             $("body").on("click", "p.employeeName", function(e) {            
                 
-                // get text of clicked element
-                var parkdate = $(this).text();
+//                 // get text of clicked element
+//                 var parkdate = $(this).text();
                               
-               //find emp in array
-                $.get(endpoint + "?movie=" + $("#txtmovie").val(), function(response) {    //get data
-                    $.each(response, function(i, v) {                                                //loop through each employee
-                        if(v.park == parkdate){                                                       //and check if his/her name is the one clicked
-                                                                                                     //if so, display that name (in modal or elsehow)
-                          //display results
-                        }
-                    });
-                });
+//                //find emp in array
+//                 $.get(endpoint + "?movie=" + $("#txtmovie").val(), function(response) {    //get data
+//                     $.each(response, function(i, v) {                                                //loop through each employee
+//                         if(v.park == parkdate){                                                       //and check if his/her name is the one clicked
+//                                                                                                      //if so, display that name (in modal or elsehow)
+//                           //display results
+//                         }
+//                     });
+//                 });
                 
                 
                 // update detail
                 // display detail      <- these two are also done above
                
-            });
+           // });
         });
     </script>
 
