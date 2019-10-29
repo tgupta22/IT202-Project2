@@ -107,7 +107,7 @@
                 
                 //console.log (endpoint + "?day=" + $("#txtDay").val() + "&title=" + $("#txtTitle").val() + "&park=" +$("#txtPark").val());
                 console.log(url);
-                $.get(url, function(response) {
+                $.get(endpoint + "?day=" + $("#txtDay").val() + "&title=" + $("#txtTitle").val() + "&park=" +$("#txtPark").val(), function(response) {
                     $.each(response, function(i, v) {
                         var p = $("<p>");
                         
