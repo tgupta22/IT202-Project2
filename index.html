@@ -72,7 +72,7 @@
       
       <!-- the content divs -->
   <div class="content" id="Home">
-      
+      <img style="-webkit-user-select: none;margin: auto;" src="https://media.phillyvoice.com/media/images/Movies_Night_at_Clark_Park_August2.2e16d0ba.fill-735x490.jpg">
    
   </div>
   <div class="content" id="Search">
@@ -130,7 +130,136 @@
       });
 
     });
+            
+            // Code to make the app installable
     </script>        
+      <head>
+       <link rel="manifest" href="./manifest.json">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>repl.it</title>
+    <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
+
+
+
+  </head>
+  <body>
+
+      <!-- notice the data-mdc-auto-init attribute;  this value is used by the autoinit script -->
+      <aside class="mdc-drawer mdc-drawer--modal" data-mdc-auto-init="MDCDrawer">
+      <div class="mdc-drawer__content">
+        <nav class="mdc-list">
+          <a class="mdc-list-item mdc-list-item--activated" href="#" aria-selected="true">
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">inbox</i>
+            <span class="mdc-list-item__text">Inbox</span>
+          </a>
+          <a class="mdc-list-item" href="#">
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">send</i>
+            <span class="mdc-list-item__text">Outgoing</span>
+          </a>
+          <a class="mdc-list-item" href="#">
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">drafts</i>
+            <span class="mdc-list-item__text">Drafts</span>
+          </a>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- necessary for modal drawer -->
+    <div class="mdc-drawer-scrim"></div>
+    
+    
+    <!--  -->
+    <header class="mdc-top-app-bar">
+      <div class="mdc-top-app-bar__row">
+        <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+          <a href="#" class="material-icons mdc-top-app-bar__navigation-icon">menu</a>
+          <span class="mdc-top-app-bar__title">Title</span>
+        </section>
+      </div>
+    </header>
+    <div class="mdc-top-app-bar--fixed-adjust"><div>
+
+
+
+
+
+    <!-- notice the data-mdc-auto-init attribute;  this value is used by the autoinit script -->
+    <div class="mdc-text-field" data-mdc-auto-init="MDCTextField">
+      <input class="mdc-text-field__input" type="text" id="input">
+      <label for="input" class="mdc-floating-label">Input Label</label>
+      <div class="mdc-line-ripple"></div>
+    </div>
+
+    <button class="mdc-button mdc-button--raised" id="btnSay">
+      Talk Back
+    </button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    
+    
+    <script type="text/javascript">
+
+
+
+
+    // wait til the document is ready
+    $(document).ready(function () {
+
+
+      var synth = window.speechSynthesis;
+
+      $("#btnSay").on("click", function(e) {
+        
+        var textToSay = $("#input").val();
+        var utterThis = new SpeechSynthesisUtterance(textToSay);
+        synth.speak(utterThis);
+      
+      });
+
+
+
+      
+      
+
+
+      // initializes all elements with the data-mdc-auto-init attribute
+      window.mdc.autoInit();
+
+      // creating a var reference just to save code later
+      var drawer = $("aside")[0].MDCDrawer;
+
+
+      // when menu icon is click, toggle drawer open property
+      $(".mdc-top-app-bar__navigation-icon").on("click", function(){
+        drawer.open = !drawer.open;
+      });
+
+      // could/should/would add an event handler for the drawer items;  click should close the drawer
+
+
+    })
+    </script>
+    <script>
+      //Navigator is the browser and checks if it supports serviceWorker
+      if ('serviceWorker' in navigator) {
+
+        // Calling the service worker object, Like a call back function.
+        navigator.serviceWorker.register('./sw.js')
+        .then(function(reg) {
+          // registration worked
+          console.log('Registration succeeded. Scope is ' + reg.scope);
+        }).catch(function(error) {
+          // registration failed
+          console.log('Registration failed with ' + error);
+        });
+      }
+    </script>
             
             
 
