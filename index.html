@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 
@@ -6,393 +5,418 @@
     <!––css-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-<!--     <title>Simple Map</title> -->
+    <!--     <title>Simple Map</title> -->
+
     
-    <div id="map"></div>
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
     <style>
-      /* Always set the map height explicitly to define the size of the div
+        /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
-      #map {
-        height: 100%;
-      }
-      /* Optional: Makes the sample page fill the window. */
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
+        #map {
+            height: 100%;
+        }
+        /* Optional: Makes the sample page fill the window. */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
     </style>
-  </head>
-    
-    
-    
-  <body>
-   
+</head>
+
+
+
+<body>
+
     <script>
-      var map;
-      function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 41.881832, lng: -87.623177},
-          zoom: 8
-        });
-      }
+        var map;
+
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: {
+                    lat: 41.881832,
+                    lng: -87.623177
+                },
+                zoom: 8
+            });
+        }
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBdxYZ757mrz7DeHhy7rMs6PEl0j3MQB68&callback=initMap"
-    async defer></script>
-   
-      	<!-- navigation bar -->
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-<!-- 		<a class="navbar-brand" href="#">Home</a>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBdxYZ757mrz7DeHhy7rMs6PEl0j3MQB68&callback=initMap" async defer></script>
+
+    <!-- navigation bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <!-- 		<a class="navbar-brand" href="#">Home</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
     </button> -->
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-<!--         home -->
-      <li class="nav-item">
-        <a class="nav-link" href="#Home">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#Search">Search</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#List">List</a>
-      </li>
-      
-     
-      <li class="nav-item">
-        <a class="nav-link" href="#Map Search">Map Search</a>
-      </li>
-    </ul>
-  </div>
-  </nav>
-      
-      
-      <!-- the content divs -->
-  <div class="content" id="Home">
-      <img style="-webkit-user-select: none;margin: auto;" src="https://media.phillyvoice.com/media/images/Movies_Night_at_Clark_Park_August2.2e16d0ba.fill-735x490.jpg">
-   
-  </div>
-  <div class="content" id="Search">
-   
-    <h2>User Movie Search App - Parks in the City of Chicago</h2>
-    <h4>Search by Day:</h4>
-    <input id="txtDay" value="Day" type="text" placeholder="Enter Day">
-<!--     <button id="btnSearch" type="submit">Search</button> -->
-<!--     <p>Some departments include: POLICE, FIRE, AVIATION, HEALTH, BUILDINGS, ...</p> -->
-    
-     <h4>Search by Park Name:</h4>
-    <input id="txtPark" value="Park Name" type="text" placeholder="Enter Park">
-<!--     <button id="btnSearch" type="submit">Search</button> -->
-    
-     <h4>Search by Movie Title:</h4>
-    <input id="txtTitle" value="Movie" type="text" placeholder="Enter Movie">
-    <button id="btnSearch" type="submit">Ready</button>
-  
-      
-   <h5>   ABOUT    </h5>
-      <h6>       This app is for the users to search different park names and movies it shows on a particular day </h6>
-          
-       <h7>  Developed by - Tarush Gupta </h7> 
-      <h8>  For more cool work and designs, Look my Github account - </h8>
-      <h9>    https://github.com/tgupta22 </h9>
-   
-      </div>
-     
-  <div class="content" id="List">
-    
-      <h1> Hii</h1>
-      
-  </div>
-  
-  <div class="content" id="Map Search">
-   <h1> Hello</h1>
-  </div>
-  
-    
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
-        <script>
-       $(document).ready(function() {
-
-           
-      function hideScreens() {
-        $(".content").hide();
-      }
-
-       hideScreens();
-      $(".nav-link").on("click", function(){
-        hideScreens();
-        var target = $(this).attr("href");
-        $(target).show();
-      });
-
-    });
-            
-            // Code to make the app installable
-    </script>        
-      <head>
-       <link rel="manifest" href="./manifest.json">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>repl.it</title>
-    <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <!--         home -->
+                <li class="nav-item">
+                    <a class="nav-link" href="#Home">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#Search">Search</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#List">List</a>
+                </li>
 
 
+                <li class="nav-item">
+                    <a class="nav-link" href="#MapSearch">Map Search</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
 
-  </head>
-  <body>
-
-      <!-- notice the data-mdc-auto-init attribute;  this value is used by the autoinit script -->
-      <aside class="mdc-drawer mdc-drawer--modal" data-mdc-auto-init="MDCDrawer">
-      <div class="mdc-drawer__content">
-        <nav class="mdc-list">
-          <a class="mdc-list-item mdc-list-item--activated" href="#" aria-selected="true">
-            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">inbox</i>
-            <span class="mdc-list-item__text">Inbox</span>
-          </a>
-          <a class="mdc-list-item" href="#">
-            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">send</i>
-            <span class="mdc-list-item__text">Outgoing</span>
-          </a>
-          <a class="mdc-list-item" href="#">
-            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">drafts</i>
-            <span class="mdc-list-item__text">Drafts</span>
-          </a>
-        </nav>
-      </div>
-    </aside>
-
-    <!-- necessary for modal drawer -->
-    <div class="mdc-drawer-scrim"></div>
-    
-    
-    <!--  -->
-    <header class="mdc-top-app-bar">
-      <div class="mdc-top-app-bar__row">
-        <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
-          <a href="#" class="material-icons mdc-top-app-bar__navigation-icon">menu</a>
-          <span class="mdc-top-app-bar__title">Title</span>
-        </section>
-      </div>
-    </header>
-    <div class="mdc-top-app-bar--fixed-adjust"><div>
-
-
-
-
-
-    <!-- notice the data-mdc-auto-init attribute;  this value is used by the autoinit script -->
-    <div class="mdc-text-field" data-mdc-auto-init="MDCTextField">
-      <input class="mdc-text-field__input" type="text" id="input">
-      <label for="input" class="mdc-floating-label">Input Label</label>
-      <div class="mdc-line-ripple"></div>
+    <!-- the content divs -->
+    <div class="content" id="Home">
+        <!--       <img style="-webkit-user-select: none;margin: auto;" src="https://media.phillyvoice.com/media/images/Movies_Night_at_Clark_Park_August2.2e16d0ba.fill-735x490.jpg">
+    -->
+        <h1>Hiiiii</h1> 
     </div>
 
-    <button class="mdc-button mdc-button--raised" id="btnSay">
-      Talk Back
-    </button>
+    <div class="content" id="Search">
+
+        <h2>User Movie Search App - Parks in the City of Chicago</h2>
+        <h4>Search by Day:</h4>
+        <input id="txtDay" value="Day" type="text" placeholder="Enter Day">
+        <!--     <button id="btnSearch" type="submit">Search</button> -->
+        <!--     <p>Some departments include: POLICE, FIRE, AVIATION, HEALTH, BUILDINGS, ...</p> -->
+
+        <h4>Search by Park Name:</h4>
+        <input id="txtPark" value="Park Name" type="text" placeholder="Enter Park">
+        <!--     <button id="btnSearch" type="submit">Search</button> -->
+
+        <h4>Search by Movie Title:</h4>
+        <input id="txtTitle" value="Movie" type="text" placeholder="Enter Movie">
+        <button id="btnSearch" type="submit">Ready</button>
+
+
+        <h5>   ABOUT    </h5>
+        <h6>       This app is for the users to search different park names and movies it shows on a particular day </h6>
+
+        <h7>Developed by - Tarush Gupta</h7>
+        <h8>For more cool work and designs, Look my Github account -</h8>
+        <h9>https://github.com/tgupta22</h9>
+
+    </div>
+
+    <div class="content" id="List">
+
+       <div id="map"></div>
+
+    </div>
+
+    <div class="content" id="Map Search">
+        <h1> Hello</h1>
+    </div>
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
-    
-    
-    <script type="text/javascript">
-
-
-
-
-    // wait til the document is ready
-    $(document).ready(function () {
-
-
-      var synth = window.speechSynthesis;
-
-      $("#btnSay").on("click", function(e) {
-        
-        var textToSay = $("#input").val();
-        var utterThis = new SpeechSynthesisUtterance(textToSay);
-        synth.speak(utterThis);
-      
-      });
-
-
-
-      
-      
-
-
-      // initializes all elements with the data-mdc-auto-init attribute
-      window.mdc.autoInit();
-
-      // creating a var reference just to save code later
-      var drawer = $("aside")[0].MDCDrawer;
-
-
-      // when menu icon is click, toggle drawer open property
-      $(".mdc-top-app-bar__navigation-icon").on("click", function(){
-        drawer.open = !drawer.open;
-      });
-
-      // could/should/would add an event handler for the drawer items;  click should close the drawer
-
-
-    })
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script>
-      //Navigator is the browser and checks if it supports serviceWorker
-      if ('serviceWorker' in navigator) {
-
-        // Calling the service worker object, Like a call back function.
-        navigator.serviceWorker.register('./sw.js')
-        .then(function(reg) {
-          // registration worked
-          console.log('Registration succeeded. Scope is ' + reg.scope);
-        }).catch(function(error) {
-          // registration failed
-          console.log('Registration failed with ' + error);
-        });
-      }
-    </script>
-            
-            
-
-    
-    
-<!-- </head> -->
-    
-    
-
-
-    
-
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-    <script>
-        var endpoint = "https://data.cityofchicago.org/resource/7piw-z6r6.json"
-        var employeeData;
         $(document).ready(function() {
-            
-            //CLICK THE BUTTON
-            $("#btnSearch").on("click", function(e) {
-                //1
-                //?$where=day="Fri"
-//             if(val == null)
-//                 {
-                    
-//                 }
-//                 
-            var day = $("#txtDay").val();
-            var movie = $("#txtTitle").val();
-            var park = $("#txtPark").val();    
-                
-             var day_soql ;
-             var movie_soql;
-             var park_soql ;   
-                
-              if (day = "")
-            {
-                 day_soql = "";
-               
-                
+            function hideScreens() {
+                $(".content").hide();
             }
-                
-                else{
-                    
-                    day_soql = "?day=" + day;
-                    
-                }
-                
-                
-                  if (movie = "")
-            {
-                 movie_soql = "";
-               
-                
-            }
-                
-                else{
-                    
-                    movie_soql = "?movie=" + movie;
-                }
-                    
-                
-                       if (park = "")
-            {
-                 park_soql = "";
-               
-                
-            }
-                
-                else{
-                    
-                    park_soql = "?park=" + park;
-                }
-                
-               var url = endpoint + day + movie + park;
-                
-                
-                
-
-//                 if (url){
-//               txtDay = " ";
-//               txtTitle = " ";
-//               txtPark = " ";
-//                     }
-                    
-                
-                    
-               // endpoint + "?day=" + $("#txtDay").val() + "&title=" + $("#txtTitle").val() + "&park=" +$("#txtPark").val();
-                
-                //console.log (endpoint + "?day=" + $("#txtDay").val() + "&title=" + $("#txtTitle").val() + "&park=" +$("#txtPark").val());
-                console.log(url);
-                $.get(endpoint + "?day=" + $("#txtDay").val() + "&title=" + $("#txtTitle").val() + "&park=" +$("#txtPark").val(), function(response) {
-                    $.each(response, function(i, v) {
-                        var p = $("<p>");
-                        
-
-                         p.text(v.title);
-                        $("body").append(p);
-                    });
-                });
-                //2
-                console.log("clicked search button");
-                //3
-                $("p.employeeName").html(''); //clear any previous entries
+            hideScreens();
+            $(".nav-link").on("click", function() {
+                hideScreens();
+                var target = $(this).attr("href");
+                $(target).show();
             });
-            
-            
-            //CLICK A RESPONSE <P>
-//             $("body").on("click", "p.employeeName", function(e) {            
-                
-//                 // get text of clicked element
-//                 var parkdate = $(this).text();
-                              
-//                //find emp in array
-//                 $.get(endpoint + "?movie=" + $("#txtmovie").val(), function(response) {    //get data
-//                     $.each(response, function(i, v) {                                                //loop through each employee
-//                         if(v.park == parkdate){                                                       //and check if his/her name is the one clicked
-//                                                                                                      //if so, display that name (in modal or elsehow)
-//                           //display results
-//                         }
-//                     });
-//                 });
-                
-                
-                // update detail
-                // display detail      <- these two are also done above
-               
-           // });
         });
+         // Code to make the app installable
     </script>
 
-</body>
+    <head>
+        <link rel="manifest" href="./manifest.json">
+<!--         <meta charset="utf-8"> -->
+        <meta name="viewport" content="width=device-width">
+        <title>repl.</title>
+        <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+
+
+    </head>
+
+<!--     <body> -->
+
+        <!-- notice the data-mdc-auto-init attribute;  this value is used by the autoinit script -->
+        <aside class="mdc-drawer mdc-drawer--modal" data-mdc-auto-init="MDCDrawer">
+            <div class="mdc-drawer__content">
+                <nav class="mdc-list">
+                    <a class="mdc-list-item mdc-list-item--activated" href="#" aria-selected="true">
+                        <i class="material-icons mdc-list-item__graphic" aria-hidden="true">inbox</i>
+                        <span class="mdc-list-item__text">Inbox</span>
+                    </a>
+                    <a class="mdc-list-item" href="#">
+                        <i class="material-icons mdc-list-item__graphic" aria-hidden="true">send</i>
+                        <span class="mdc-list-item__text">Outgoing</span>
+                    </a>
+                    <a class="mdc-list-item" href="#">
+                        <i class="material-icons mdc-list-item__graphic" aria-hidden="true">drafts</i>
+                        <span class="mdc-list-item__text">Drafts</span>
+                    </a>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- necessary for modal drawer -->
+        <div class="mdc-drawer-scrim"></div>
+
+
+        <!--  -->
+        <header class="mdc-top-app-bar">
+            <div class="mdc-top-app-bar__row">
+                <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+                    <a href="#" class="material-icons mdc-top-app-bar__navigation-icon">menu</a>
+                    <span class="mdc-top-app-bar__title">Title</span>
+                </section>
+            </div>
+        </header>
+        <div class="mdc-top-app-bar--fixed-adjust">
+            <div>
+
+
+
+
+
+                <!-- notice the data-mdc-auto-init attribute;  this value is used by the autoinit script -->
+                <div class="mdc-text-field" data-mdc-auto-init="MDCTextField">
+                    <input class="mdc-text-field__input" type="text" id="input">
+                    <label for="input" class="mdc-floating-label">Input Label</label>
+                    <div class="mdc-line-ripple"></div>
+                </div>
+
+                <button class="mdc-button mdc-button--raised" id="btnSay">
+                    Talk Back
+                </button>
+
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+                <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+
+
+                <script type="text/javascript">
+                    // wait til the document is ready
+                    $(document).ready(function() {
+                        var synth = window.speechSynthesis;
+                        $("#btnSay").on("click", function(e) {
+                            var textToSay = $("#input").val();
+                            var utterThis = new SpeechSynthesisUtterance(textToSay);
+                            synth.speak(utterThis);
+                        });
+                        // initializes all elements with the data-mdc-auto-init attribute
+                        window.mdc.autoInit();
+                        // creating a var reference just to save code later
+                        var drawer = $("aside")[0].MDCDrawer;
+                        // when menu icon is click, toggle drawer open property
+                        $(".mdc-top-app-bar__navigation-icon").on("click", function() {
+                            drawer.open = !drawer.open;
+                        });
+                        // could/should/would add an event handler for the drawer items;  click should close the drawer
+                    })
+                </script>
+                <script>
+                    //Navigator is the browser and checks if it supports serviceWorker
+                    if('serviceWorker' in navigator) {
+                        // Calling the service worker object, Like a call back function.
+                        navigator.serviceWorker.register('./it202-project2//sw.js').then(function(reg) {
+                            
+                 if(reg.installing) { 
+                     console.log('Service worker installing'); 
+                 } 
+                               else if(reg.waiting) 
+                            { console.log('Service worker installed'); 
+                            } else if(reg.active) 
+                            { console.log('Service worker active'); 
+                            }
+
+                            // registration worked
+                            console.log('Registration succeeded. Scope is ' + reg.scope);
+                        }).
+                        catch(function(error) {
+                            // registration failed
+                            console.log('Registration failed with ' + error);
+                        });
+                    }
+                </script>
+
+
+
+
+
+                <!-- </head> -->
+
+
+
+
+
+                <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+                <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+                <script>
+                    var endpoint = "https://data.cityofchicago.org/resource/7piw-z6r6.json"
+                    var employeeData;
+                    $(document).ready(function() {
+                        //CLICK THE BUTTON
+                        $("#btnSearch").on("click", function(e) {
+                            //1
+                            //?$where=day="Fri"
+                            //             if(val == null)
+                            //                 {
+                            //                 }
+                            //                 
+                            var day = $("#txtDay").val();
+                            var movie = $("#txtTitle").val();
+                            var park = $("#txtPark").val();
+                            var day_soql;
+                            var movie_soql;
+                            var park_soql;
+                            if(day = "") {
+                                day_soql = "";
+                            } else {
+                                day_soql = "?day=" + day;
+                            }
+                            if(movie = "") {
+                                movie_soql = "";
+                            } else {
+                                movie_soql = "?movie=" + movie;
+                            }
+                            if(park = "") {
+                                park_soql = "";
+                            } else {
+                                park_soql = "?park=" + park;
+                            }
+                            var url = endpoint + day + movie + park;
+                            //                 if (url){
+                            //               txtDay = " ";
+                            //               txtTitle = " ";
+                            //               txtPark = " ";
+                            //                     }
+                            // endpoint + "?day=" + $("#txtDay").val() + "&title=" + $("#txtTitle").val() + "&park=" +$("#txtPark").val();
+                            //console.log (endpoint + "?day=" + $("#txtDay").val() + "&title=" + $("#txtTitle").val() + "&park=" +$("#txtPark").val());
+                            console.log(url);
+                            $.get(endpoint + "?day=" + $("#txtDay").val() + "&title=" + $("#txtTitle").val() + "&park=" + $("#txtPark").val(), function(response) {
+                                $.each(response, function(i, v) {
+                                    var p = $("<p>");
+                                    p.text(v.title);
+                                    $("body").append(p);
+                                });
+                            });
+                            //2
+                            console.log("clicked search button");
+                            //3
+                            $("p.employeeName").html(''); //clear any previous entries
+                        });
+                        //CLICK A RESPONSE <P>
+                        //             $("body").on("click", "p.employeeName", function(e) {            
+                        //                 // get text of clicked element
+                        //                 var parkdate = $(this).text();
+                        //                //find emp in array
+                        //                 $.get(endpoint + "?movie=" + $("#txtmovie").val(), function(response) {    //get data
+                        //                     $.each(response, function(i, v) {                                                //loop through each employee
+                        //                         if(v.park == parkdate){                                                       //and check if his/her name is the one clicked
+                        //                                                                                                      //if so, display that name (in modal or elsehow)
+                        //                           //display results
+                        //                         }
+                        //                     });
+                        //                 });
+                        // update detail
+                        // display detail      <- these two are also done above
+                        // });
+                    });
+                </script>
+                
+<!--                 <head> -->
+<!-- 	<meta charset="utf-8"> -->
+<!-- 	<meta name="viewport" content="width=device-width"> -->
+<!-- 	<title>repl.</title> -->
+
+
+<body>
+	<input type="text" id="item" placeholder="Enter an item for your list">
+    <br>
+    <input type="radio" value="work" name="category">
+    Work
+    <input type="radio" value="home" name="category">
+    Home
+   <input type="radio" value="health" name="category">
+    Health
+   <br>
+   <button id="btnSave">Save</button>
+   <hr>
+   <button class="show-items"  data-category="work" id="btnWork">Show Work Items</button>
+    <button class="show-items" data-category="home" id="btnHome">Show Home Items</button>
+    <button class="show-items"  data-category="health" id="btnHealth">Show Health Items</button>
+    <button class="show-items"  data-category="" id="btnHealth">Show All Items</button>
+
+
+    <div id="itemsList">
+      <ul>
+      </ul>
+    </div>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dexie/2.0.4/dexie.min.js"></script>
+
+    <script>
+      const db = new Dexie('MyDatabase');
+
+
+      // Declare tables, IDs and indexes
+      db.version(1).stores({
+        items: '++id, category, item',
+        history: '++id'
+      });
+
+      $("#btnSave").on("click", function(){
+        var item_name = $("#item").val()
+        var category = $("input[name='category']:checked"). val();
+        
+        db.items.add({
+        item: item_name,
+        category: category
+        }).then(function() {
+          alert(item_name + " added!")
+        });
+      });
+
+      $(".show-items").on("click", function(){
+        $("#itemsList ul").empty()
+
+        var category = $(this).attr("data-category");
+
+        if (category == "") {
+          db.items.each(item => showItem(item));
+        } else {
+          db.items.where('category').equals(category).each(item => showItem(item));
+        }
+
+
+      });
+
+
+      function showItem (item) {
+        var li = $("<li>");
+        li.text(item.category + ": " + item.item);
+        $("#itemsList ul").append(li);
+      }
+
+
+    </script>
+
+
+<!--     </body> -->
+
 </html>
